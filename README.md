@@ -12,3 +12,5 @@ search:
 #To run the file
 sudo docker-compose up -d
 
+#To kill the server
+sudo docker-compose down
