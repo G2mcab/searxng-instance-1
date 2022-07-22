@@ -1,0 +1,25 @@
+tasks:
+  - init: |
+      sudo apt update && sudo apt upgrade -y
+      git clone https://github.com/searxng/searxng-docker
+      git clone https://github.com/searxng/searxng
+  - command: |
+      cd searxng-docker
+      echo 'SEARXNG_HOSTNAME=private-search'>>.env
+      echo 'LETSENCRYPT_EMAIL=abenezereliasacc@gmail.com'>>.env
+      sed -i "s|ultrasecretkey|$(openssl rand -hex 32)|g" searxng/settings.yml
+      echo 'general:
+  instance_name: "Ghost net"
+  enable_metrics: true
+search:
+  safe_search: 2
+  autocomplete: "google"'>>settings.yml
+      sudo docker-compose up -d
+      
+ports:
+  - port: 80
+    onOpen: ignore
+  - port: 443
+    onOpen: ignore
+  - port: 8080
+    onOpen: ignore
