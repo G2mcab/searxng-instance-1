@@ -1,0 +1,7 @@
+#/bin/bash
+echo 'general:
+  instance_name: "Ghost net"
+  enable_metrics: true
+search:
+  safe_search: 2
+  autocomplete: "google"'
