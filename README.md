@@ -1,2 +1,2 @@
 # searxng-instance-1
-Private run on gitpod
+Private search running instance on gitpod
