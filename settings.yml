@@ -1,0 +1,18 @@
+# see https://docs.searxng.org/admin/engines/settings.html#use-default-settings
+use_default_settings: true
+server:
+  # base_url is defined in the SEARXNG_BASE_URL environment variable, see .env and docker-compose.yml
+  secret_key: "7ce36d358efe0a106f060d201847bd0166a62d896ccde16b26cc00ac6b70b699"  # change this!
+  limiter: true  # can be disabled for a private instance
+  image_proxy: true
+ui:
+  static_use_hash: true
+redis:
+  url: redis://redis:6379/0
+
+general:
+  instance_name: "Ghost net"
+  enable_metrics: true
+search:
+  safe_search: 2
+  autocomplete: "google"

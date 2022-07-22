@@ -4,8 +4,10 @@ tasks:
   - command: |
       git clone https://github.com/searxng/searxng-docker
       cd searxng-docker
-      echo 'SEARXNG_HOSTNAME=private-search'>>.env
-      echo 'LETSENCRYPT_EMAIL=abenezereliasacc@gmail.com'>>.env
+      rm .env
+      cp ../.env .env
+      rm searxng/settings.yml
+      cp ../settings.yml searxng/settings.yml
       sed -i "s|ultrasecretkey|$(openssl rand -hex 32)|g" searxng/settings.yml
       sudo docker-compose up -d
       
